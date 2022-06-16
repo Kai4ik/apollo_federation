@@ -1,0 +1,23 @@
+services:
+  artists:
+    build: ./artistsSubgraph
+    ports:
+      - "8001:8001"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  songs:
+    build: ./songsSubgraph
+    ports:
+      - "8002:8002"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  playlists:
+    build: ./playlistsSubgraph
+    ports:
+      - "8004:8004"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  federation:
+    build: .
+    ports:
+      - "8080:4000"

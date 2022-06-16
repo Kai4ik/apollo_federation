@@ -1,0 +1,28 @@
+{
+  "name": "apollo_docker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.mjs",
+    "service:federation": "nodemon index.mjs",
+    "service:artists": "nodemon ./artistsSubgraph/index.mjs",
+    "service:songs": "nodemon ./songsSubgraph/index.mjs",
+    "service:playlists": "nodemon ./playlistsSubgraph/index.mjs",
+    "server": "concurrently -k npm:service:*"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@apollo/gateway": "^2.0.5",
+    "apollo-server": "^3.8.2",
+    "concurrently": "^7.2.2",
+    "graphql": "^16.5.0"
+  },
+  "devDependencies": {
+    "@apollo/rover": "^0.7.0",
+    "nodemon": "^2.0.16"
+  }
+}
